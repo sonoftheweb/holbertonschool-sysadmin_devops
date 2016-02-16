@@ -18,8 +18,8 @@ c. ssh-copy-id remote_host
 This will copy the file while connecting to the server. 
 
 
-2. The Public Key should be given to the system admin. The public key will be added to the authorized_keys file of the sandbox server. The public key will encrypting traffic that is sent over SSH and verify that you have the correct private key.
+2. The public key file eg. id_rsa.pub is sent to the servers /$USER/.ssh folder using ssh-copy-id remote_host. This file is shared with any device that you want to access via SSH. The Public key will be stored in the server's $HOME/.ssh file. That way when you access the server via SSH (username@ip-address) the keys on your system is compared to the one on the server and if they tally you are allowed access. The public key stores the cryptographic key by which the user system and the sandbox server can compute a shared secret for access.
 
-3. Store the Private key in a safe location on the local machine (usually $USER/.ssh) and never share it with anyone. Sharing will be equal to giving out your password. The Private key is used for authentication into the sandbox server. The private key is meant to decrypt the data transmitted over SSH.
+3. The private key is kept safe in your USER/.ssh folder never to be shared with anyone. Private Key is used for authentication and a symmetric key exchange during establishment of an SSL/TLS session. When you connect to the server the private key is picked up from the file and decrypted using the public key on the server. Once the right key match is made you are allowed access to the server. The private key will encrypt / decrypt connection and messages between me and the sandbox machine ensuring safe use.
 
 
