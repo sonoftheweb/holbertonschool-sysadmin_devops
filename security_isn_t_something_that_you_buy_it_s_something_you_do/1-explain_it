@@ -1,18 +1,25 @@
-Before I explain what I need to do to access the servers, I have to first explain the concept of SSH keys. 
+1. Before I explain what I need to do to access the servers, I have to first explain the concept of SSH keys. 
 
 Access to the SSH server can be done in two ways. 
 
-1. Via a username and a password 
-2. Via SSH keys 
+Via a username and a password 
+Via SSH keys 
 
 SSH keys is the best and most secure way to connect to a remote server using SHH. This works like Bluetooth pairing only this time there are keys involved. Key-based authentication works by creating a pair of keys: a private key and a public key. The private key is located on the client machine and is secured and kept secret. The public key can be given to anyone or placed on any server you wish to access. When you attempt to connect using a key-pair, the server will use the public key to create a message for the client computer that can only be read with the private key. The client computer then sends the appropriate response back to the server and the server will know that the client is legitimate. This entire process is done in the background automatically after you set up keys.
 
 These are the steps I will take.
 
-1. ssh-keygen -t rsa -b 4096
+a. ssh-keygen -t rsa -b 4096
 This will create two files "id_rsa" and "id_rsa.pub". The id_rsa.pub file is what is shared with the server.
 
-2. CD into the $HOME/.ssh folder
+b. CD into the $HOME/.ssh folder
 
-3. ssh-copy-id remote_host 
+c. ssh-copy-id remote_host 
 This will copy the file while connecting to the server. 
+
+
+2. The Public Key should be given to the system admin. The public key will be added to the authorized_keys file of the sandbox server. The public key will encrypting traffic that is sent over SSH and verify that you have the correct private key.
+
+3. Store the Private key in a safe location on the local machine (usually $USER/.ssh) and never share it with anyone. Sharing will be equal to giving out your password. The Private key is used for authentication into the sandbox server. The private key is meant to decrypt the data transmitted over SSH.
+
+
