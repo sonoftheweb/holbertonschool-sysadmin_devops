@@ -1,0 +1,2 @@
+#!/bin/bash
+echo IlRoZXJlIGFyZSB0d28gdHlwZXMgb2YgZW5jcnlwdGlvbjogb25lIHRoYXQgd2lsbCBwcmV2ZW50IHlvdXIgc2lzdGVyIGZyb20gcmVhZGluZyB5b3VyIGRpYXJ5IGFuZCBvbmUgdGhhdCB3aWxsIHByZXZlbnQgeW91ciBnb3Zlcm5tZW50LiIKLSBCcnVjZSBTY2huZWllcgo= | base64 --decode
